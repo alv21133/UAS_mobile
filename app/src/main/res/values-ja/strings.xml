@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">私の映画</string>
+    <string name="detail">詳細</string>
+    <string name="tayang">起動する :</string>
+    <string name="ganti_bahasa">言語を変更する</string>
+    <string name="keluar">出る</string>
+</resources>
