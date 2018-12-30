@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MyMovie</string>
+    <string name="detail">Detail</string>
+    <string name="tayang">Launching :</string>
+    <string name="ganti_bahasa">Change Language</string>
+    <string name="keluar">Out</string>
+</resources>

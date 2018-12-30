@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FilemKU</string>
+    <string name="detail">Detail</string>
+    <string name="tayang">Peluncuran :</string>
+    <string name="ganti_bahasa">Ganti Bahasa</string>
+    <string name="keluar">Keluar</string>
+</resources>

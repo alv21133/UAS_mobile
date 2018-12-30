@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Mon film</string>
+    <string name="detail">détails</string>
+    <string name="tayang">Lancer   :</string>
+    <string name="ganti_bahasa">Changer De Language</string>
+    <string name="keluar">OUT</string>
+
+</resources>
