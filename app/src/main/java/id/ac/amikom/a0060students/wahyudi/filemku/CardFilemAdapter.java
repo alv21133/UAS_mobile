@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CardFilemAdapter extends RecyclerView.Adapter<CardFilemAdapter.CardViewHolder> {
@@ -57,7 +58,7 @@ public class CardFilemAdapter extends RecyclerView.Adapter<CardFilemAdapter.Card
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, FilemDetailActivity.class);
-                intent.putExtra("M" ,m);
+                intent.putExtra("M" , (Serializable) m);
                 context.startActivity(intent);
             }
         });

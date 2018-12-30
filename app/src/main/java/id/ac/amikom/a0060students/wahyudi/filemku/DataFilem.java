@@ -14,6 +14,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static android.provider.BaseColumns._ID;
+
 public class DataFilem extends AsyncTaskLoader<ArrayList<Filem>> {
     private String URL;
     private String filems = null;
@@ -44,8 +46,9 @@ public class DataFilem extends AsyncTaskLoader<ArrayList<Filem>> {
                         String judul = objMovie.getString("title");
                         String ringkasan = objMovie.getString("overview");
                         String tayang = objMovie.getString("release_date");
-                        String imgPoster = "http://image.tmdb.org/t/p/w185" + objMovie.getString("poster_path");
-                        list.add(new Filem(judul,ringkasan, tayang, imgPoster));
+                        String imgPoster = "http://image.tmdb.org/t/p/w300" + objMovie.getString("poster_path");
+                        int id = 0;
+                        list.add(new Filem(id,judul,ringkasan, tayang, imgPoster));
                     }
                 }
             }catch (JSONException e){
