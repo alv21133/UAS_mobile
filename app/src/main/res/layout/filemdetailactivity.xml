@@ -13,6 +13,9 @@
         android:layout_height="400px"
         android:scaleType="centerCrop"
         android:src="@drawable/wall"/>
+
+
+
     <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -43,6 +46,26 @@
             android:text="2018-06-01"
             android:textStyle="bold" />
 
+        <!--<Button-->
+
+            <!--android:id="@+id/favorite"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="35dp"-->
+            <!--android:layout_marginLeft="250dp"-->
+            <!--android:layout_marginTop="28dp"-->
+            <!--android:background="@color/colorbutton"-->
+            <!--android:textColor="@color/cardview_light_background"-->
+            <!--android:text="favorite" />-->
+
+        <ImageButton
+            android:id="@+id/notif"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="25dp"
+            android:background="#00000000"
+            android:scaleType="centerCrop"
+            android:src="@drawable/btn_info" />
         <ScrollView
             android:layout_below="@id/txtdatatayang"
             android:layout_width="match_parent"
