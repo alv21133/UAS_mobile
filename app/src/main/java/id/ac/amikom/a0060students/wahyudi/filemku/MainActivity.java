@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements  LoaderManager.Lo
 
         private RecyclerView recyclerView;
         private ArrayList<Filem> list;
-
+        DataHelper dbcenter;
         private String URL = "https://api.themoviedb.org/3/movie/now_playing?api_key=801b1e0446fb600018c5926549d8b856";
 
         @Override
@@ -85,6 +85,10 @@ public class MainActivity extends AppCompatActivity implements  LoaderManager.Lo
 
             case R.id.keluar:
                 finish();
+                break;
+            case R.id.intentfavorit:
+                Intent intentfavorite = new Intent(MainActivity.this, FavoriteActivity.class);
+                startActivity(intentfavorite);
                 break;
         }
         return super.onOptionsItemSelected(item);

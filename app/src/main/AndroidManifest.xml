@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".FilemDetailActivity"></activity>
+        <activity android:name=".FavoriteActivity"></activity>
     </application>
 
 </manifest>
