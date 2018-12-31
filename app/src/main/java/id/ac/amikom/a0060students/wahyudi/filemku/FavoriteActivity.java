@@ -1,5 +1,8 @@
 package id.ac.amikom.a0060students.wahyudi.filemku;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -7,7 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+
 
 import java.util.ArrayList;
 
@@ -30,6 +39,10 @@ public class FavoriteActivity extends AppCompatActivity {
         setContentView(R.layout.favorite);
 
         dbHelper = new DataHelper(this);
+        RefreshList();
+    }
+
+    public void RefreshList(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM favorit",null);
         judul = new String[cursor.getCount()];
@@ -46,7 +59,39 @@ public class FavoriteActivity extends AppCompatActivity {
         simpleList = (ListView) findViewById(R.id.rv_category);
         CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), judul,ringkasan,image);
         simpleList.setAdapter(customAdapter);
-    }
+        simpleList.setSelected(true);
+        simpleList.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                final String selection =  judul[position];
+                final CharSequence[] dialogitem = {"Lihat Detail", "Update Detail", "Hapus Film"};
+                AlertDialog.Builder builder = new AlertDialog.Builder(FavoriteActivity.this);
 
+                builder.setTitle("Pilihan");
+                builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int item) {
+                        switch(item){
+                            case 0 :
+                                Intent i = new Intent(getApplicationContext(), FilemDetailActivity.class);
+                                i.putExtra("nama", selection);
+                                startActivity(i);
+                                break;
+                            case 1 :
+                                Intent in = new Intent(getApplicationContext(), MainActivity.class);
+                                in.putExtra("nama", selection);
+                                startActivity(in);
+                                break;
+                            case 2 :
+                                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                                db.execSQL("delete from favorit where judul = '"+selection+"'");
+                                RefreshList();
+                                break;
+                        }
+                    }
+                });
+                builder.create().show();
+            }});
+        ((CustomAdapter)simpleList.getAdapter()).notifyDataSetInvalidated();
+    }
 
 }
