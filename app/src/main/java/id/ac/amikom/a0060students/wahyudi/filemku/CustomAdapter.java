@@ -16,13 +16,15 @@ import com.bumptech.glide.Glide;
 
 public class CustomAdapter extends BaseAdapter {
     private Context context;
+    String no[];
     String judul[];
     String ringkasan[];
     String image[];
     LayoutInflater inflter;
 
-    public CustomAdapter(Context applicationContext, String[] judul, String[] ringkasan, String[] image) {
+    public CustomAdapter(Context applicationContext, String[] no, String[] judul, String[] ringkasan, String[] image) {
         this.context = applicationContext;
+        this.no = no;
         this.judul = judul;
         this.ringkasan = ringkasan;
         this.image = image;
@@ -47,9 +49,11 @@ public class CustomAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         view = inflter.inflate(R.layout.item_row_favorite, null);
+        TextView vno = (TextView)           view.findViewById(R.id.no);
         TextView vjudul = (TextView)           view.findViewById(R.id.judul);
         TextView vringkasan = (TextView) view.findViewById(R.id.ringkasan);
         ImageView vimage = (ImageView) view.findViewById(R.id.image);
+        vno.setText(no[i]);
         vjudul.setText(judul[i]);
         vringkasan.setText(ringkasan[i]);
         Glide.with(context)

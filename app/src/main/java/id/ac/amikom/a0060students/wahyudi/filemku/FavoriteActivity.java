@@ -29,15 +29,19 @@ import static android.R.id.list;
 public class FavoriteActivity extends AppCompatActivity {
     protected Cursor cursor;
     DataHelper dbHelper;
+    public String[] no;
     public String[] judul;
     public String[] ringkasan;
     public String[] image;
     ListView simpleList;
+    public static FavoriteActivity fa;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.favorite);
 
+        fa = this;
         dbHelper = new DataHelper(this);
         RefreshList();
     }
@@ -45,25 +49,27 @@ public class FavoriteActivity extends AppCompatActivity {
     public void RefreshList(){
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         cursor = db.rawQuery("SELECT * FROM favorit",null);
+        no = new String[cursor.getCount()];
         judul = new String[cursor.getCount()];
         ringkasan = new String[cursor.getCount()];
         image = new String[cursor.getCount()];
         cursor.moveToFirst();
         for (int cc=0; cc < cursor.getCount(); cc++){
             cursor.moveToPosition(cc);
+            no[cc] = cursor.getString(0).toString();
             judul[cc] = cursor.getString(1).toString();
             ringkasan[cc] = cursor.getString(3).toString();
             image[cc] = cursor.getString(4).toString();
         }
-        Log.d("Data", "onCreate: " + judul + ringkasan + image);
+        Log.d("Data", "onCreate: " + no + judul + ringkasan + image);
         simpleList = (ListView) findViewById(R.id.rv_category);
-        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), judul,ringkasan,image);
+        CustomAdapter customAdapter = new CustomAdapter(getApplicationContext(), no, judul,ringkasan,image);
         simpleList.setAdapter(customAdapter);
         simpleList.setSelected(true);
         simpleList.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final String selection =  judul[position];
+                final String selection =  no[position];
                 final CharSequence[] dialogitem = {"Lihat Detail", "Update Detail", "Hapus Film"};
                 AlertDialog.Builder builder = new AlertDialog.Builder(FavoriteActivity.this);
 
@@ -77,13 +83,13 @@ public class FavoriteActivity extends AppCompatActivity {
                                 startActivity(i);
                                 break;
                             case 1 :
-                                Intent in = new Intent(getApplicationContext(), MainActivity.class);
-                                in.putExtra("nama", selection);
+                                Intent in = new Intent(getApplicationContext(), UpdateFavorite.class);
+                                in.putExtra("no", selection);
                                 startActivity(in);
                                 break;
                             case 2 :
                                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-                                db.execSQL("delete from favorit where judul = '"+selection+"'");
+                                db.execSQL("delete from favorit where no = '"+selection+"'");
                                 RefreshList();
                                 break;
                         }
