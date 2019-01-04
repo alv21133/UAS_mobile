@@ -49,8 +49,11 @@ public class CardFilemAdapter extends RecyclerView.Adapter<CardFilemAdapter.Card
 
         cardViewHolder.txtJudul.setText(m.getTxtJudul());
         String Ringkasan = m.getTxtRingkasan();
-        if(Ringkasan.length() >= 100){
-            Ringkasan = m.getTxtRingkasan().substring(0, 100) + "... ";
+        String Judull = m.getTxtJudul();
+        if(Judull.length() >= 30){
+            Ringkasan = m.getTxtRingkasan().substring(0, 40) + "... ";
+        }else if (Ringkasan.length() >=70){
+            Ringkasan = m.getTxtRingkasan().substring(0, 70) + "... ";
         }
         cardViewHolder.txtRingkasan.setText(Ringkasan);
 

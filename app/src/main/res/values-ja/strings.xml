@@ -4,4 +4,10 @@
     <string name="tayang">起動する :</string>
     <string name="ganti_bahasa">言語を変更する</string>
     <string name="keluar">出る</string>
+    <string name="favorit">お気に入り</string>
+    <string name="toastberhasil">成功しました</string>
+    <string name="lihatdetail">詳細を見る</string>
+    <string name="updatedetail">詳細アップデート</string>
+    <string name="hapusfilm">フィルムを削除</string>
+    <string name="pilihan">選択</string>
 </resources>

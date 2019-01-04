@@ -4,4 +4,10 @@
 <string name="tayang">Peluncuran :</string>
 <string name="ganti_bahasa">Ganti Bahasa</string>
 <string name="keluar">Keluar</string>
+    <string name="favorit">Favorit</string>
+    <string name="toastberhasil">Berhasil</string>
+    <string name="lihatdetail">Lihat Detail</string>
+    <string name="updatedetail">Update Detail</string>
+    <string name="hapusfilm">Hapus Film</string>
+    <string name="pilihan">Pilihan</string>
 </resources>

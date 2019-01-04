@@ -4,4 +4,10 @@
     <string name="tayang">lancio :</string>
     <string name="ganti_bahasa">Cambia lingua</string>
     <string name="keluar">Esci</string>
+    <string name="favorit">favorito</string>
+    <string name="toastberhasil">avere successo</string>
+    <string name="lihatdetail">Vedi i dettagli</string>
+    <string name="updatedetail">Aggiornamento dettagli</string>
+    <string name="hapusfilm">Rimuovi pellicola</string>
+    <string name="pilihan">selezione</string>
 </resources>

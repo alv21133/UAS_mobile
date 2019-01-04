@@ -9,103 +9,99 @@
 
     <ImageView
         android:id="@+id/coverFilem"
-        android:layout_width="match_parent"
-        android:layout_height="400px"
+        android:layout_width="fill_parent"
+        android:layout_height="600px"
         android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
         android:src="@drawable/wall"/>
 
 
-
     <RelativeLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         android:padding="10dp">
+
         <TextView
             android:id="@+id/txtDetailJudul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
+            android:text="Hai this is sample text for title"
             android:textAlignment="center"
             android:textColor="@android:color/black"
-            android:text="Hai this is sample text for title"/>
+            android:textSize="20sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="55dp"
             android:text="@string/tayang"
-            android:layout_marginTop="30dp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtdatatayang"
             android:layout_width="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="90dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="55dp"
             android:text="2018-06-01"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/favorit"
-            android:layout_width="wrap_content"
-            android:layout_marginTop="22dp"
-            android:layout_marginLeft="180dp"
-            android:layout_height="30dp"
-            android:text="Favorit"
-            android:textSize="10sp"
             android:textStyle="bold" />
 
         <!--<Button-->
 
-            <!--android:id="@+id/favorite"-->
-            <!--android:layout_width="100dp"-->
-            <!--android:layout_height="35dp"-->
-            <!--android:layout_marginLeft="250dp"-->
-            <!--android:layout_marginTop="28dp"-->
-            <!--android:background="@color/colorbutton"-->
-            <!--android:textColor="@color/cardview_light_background"-->
-            <!--android:text="favorite" />-->
+        <!--android:id="@+id/favorite"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="35dp"-->
+        <!--android:layout_marginLeft="250dp"-->
+        <!--android:layout_marginTop="28dp"-->
+        <!--android:background="@color/colorbutton"-->
+        <!--android:textColor="@color/cardview_light_background"-->
+        <!--android:text="favorite" />-->
 
         <ImageButton
             android:id="@+id/notif"
             android:layout_width="38dp"
             android:layout_height="38dp"
-            android:layout_marginLeft="260dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginLeft="31dp"
+            android:layout_marginTop="23dp"
             android:background="#00000000"
             android:scaleType="centerCrop"
-            android:src="@drawable/btn_info" />
+            android:src="@drawable/btn_info"
+            android:layout_below="@+id/linearLayout"
+            android:layout_toRightOf="@+id/txtdatatayang" />
+
         <ScrollView
-            android:layout_below="@id/txtdatatayang"
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_below="@id/txtdatatayang"
+            android:layout_marginTop="20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
+
                 <TextView
                     android:id="@+id/txtRingkasanAll"
                     android:layout_width="wrap_content"
-                    android:layout_height="400dp"
-                    android:textStyle="bold"
+                    android:layout_height="316dp"
                     android:layout_marginTop="2dp"
+                    android:text="A brutal mugging leaves Grey Trace paralyzed in the hospital and his beloved wife dead. A billionaire inventor soon offers Trace a cure — an artificial intelligence implant called STEM that will enhance his body. Now able to walk, Grey finds that he also has superhuman strength and agility — skills he uses to seek revenge against the thugs who destroyed his life."
                     android:textAlignment="center"
-                    android:textSize="15sp"
                     android:textColor="@android:color/black"
-                    android:text="A brutal mugging leaves Grey Trace paralyzed in the hospital and his beloved wife dead. A billionaire inventor soon offers Trace a cure — an artificial intelligence implant called STEM that will enhance his body. Now able to walk, Grey finds that he also has superhuman strength and agility — skills he uses to seek revenge against the thugs who destroyed his life."/> />
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+                />
             </LinearLayout>
         </ScrollView>
 
         <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
+            android:id="@+id/linearLayout"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
 
         </LinearLayout>
 

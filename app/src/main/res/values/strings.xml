@@ -4,5 +4,10 @@
     <string name="tayang">Launching :</string>
     <string name="ganti_bahasa">Change Language</string>
     <string name="keluar">Out</string>
-    <string name="favorit">favorite</string>
+    <string name="favorit">Favorite</string>
+    <string name="toastberhasil">Success</string>
+    <string name="lihatdetail">See Detail</string>
+    <string name="updatedetail">Update Detail</string>
+    <string name="hapusfilm">Delete Movie</string>
+    <string name="pilihan">Options</string>
 </resources>

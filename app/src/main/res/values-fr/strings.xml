@@ -4,5 +4,11 @@
     <string name="tayang">Lancer   :</string>
     <string name="ganti_bahasa">Changer De Language</string>
     <string name="keluar">OUT</string>
+    <string name="favorit">Les favoris</string>
+    <string name="toastberhasil">A réussi</string>
+    <string name="lihatdetail">Voir les détails</string>
+    <string name="updatedetail">Mise à jour détaillée</string>
+    <string name="hapusfilm">Retirer le film</string>
+    <string name="pilihan">Choix</string>
 
 </resources>

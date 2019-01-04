@@ -70,10 +70,14 @@ public class FavoriteActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 final String selection =  no[position];
-                final CharSequence[] dialogitem = {"Lihat Detail", "Update Detail", "Hapus Film"};
+                String lihatdetail = getString(R.string.lihatdetail);
+                String updatedetail = getString(R.string.updatedetail);
+                String deletefilm = getString(R.string.hapusfilm);
+                String pilihan = getString(R.string.pilihan);
+                final CharSequence[] dialogitem = {lihatdetail, updatedetail, deletefilm};
                 AlertDialog.Builder builder = new AlertDialog.Builder(FavoriteActivity.this);
 
-                builder.setTitle("Pilihan");
+                builder.setTitle(pilihan);
                 builder.setItems(dialogitem, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int item) {
                         switch(item){

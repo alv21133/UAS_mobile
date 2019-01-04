@@ -48,20 +48,19 @@ public class FilemDetailActivity extends AppCompatActivity {
         txtRingkasan.setText(f.getTxtRingkasan());
         txttayang=(TextView) findViewById(R.id.txtdatatayang);
         txttayang.setText(f.gettayang());
-        favorite = (Button) findViewById(R.id.favorit);
+
         image = f.getImgPoster();
 
         notification = (ImageButton) findViewById(R.id.notif);
 
         imgPoster=(ImageView) findViewById(R.id.coverFilem);
         Glide.with(getApplicationContext())
-                .load(f.getImgPoster()).override(350,350).into(imgPoster);
+                .load(f.getImgPoster()).override(600,600).into(imgPoster);
 
         Log.d("",f.getImgPoster());
-
-        favorite.setOnClickListener(new View.OnClickListener() {
+        notification.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View arg0) {
+            public void onClick(View v) {
                 // TODO Auto-generated method stub
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
                 db.execSQL("insert into favorit(judul, tgl, ringkasan, image) values('" +
@@ -69,12 +68,8 @@ public class FilemDetailActivity extends AppCompatActivity {
                         txttayang.getText().toString() + "','" +
                         txtRingkasan.getText().toString() + "','" +
                         image + "')");
-                Toast.makeText(getApplicationContext(), "Berhasil", Toast.LENGTH_LONG).show();
-            }
-        });
-        notification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                String toast = getString(R.string.toastberhasil);
+                Toast.makeText(getApplicationContext(), toast, Toast.LENGTH_LONG).show();
                 showNotif();
             }
         });
