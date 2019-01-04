@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+        <style name="SplashTheme" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:windowBackground">@drawable/background</item>
+
+        </style>
+
+
+
 </resources>
