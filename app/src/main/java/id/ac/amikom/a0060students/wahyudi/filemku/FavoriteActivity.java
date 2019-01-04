@@ -78,8 +78,8 @@ public class FavoriteActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int item) {
                         switch(item){
                             case 0 :
-                                Intent i = new Intent(getApplicationContext(), FilemDetailActivity.class);
-                                i.putExtra("nama", selection);
+                                Intent i = new Intent(getApplicationContext(), FavoriteDetail.class);
+                                i.putExtra("no", selection);
                                 startActivity(i);
                                 break;
                             case 1 :
