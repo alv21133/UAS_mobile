@@ -1,5 +1,6 @@
 package id.ac.amikom.a0060students.wahyudi.filemku;
 
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -8,6 +9,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.Image;
+import android.speech.RecognizerResultsIntent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -76,6 +78,7 @@ public class FilemDetailActivity extends AppCompatActivity {
 
 
 
+
     }
     private void showNotif() {
         NotificationManager notificationManager;
@@ -84,10 +87,10 @@ public class FilemDetailActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("fromnotif", "notif");
         mIntent.putExtras(bundle);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, mIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, new Intent(this , FavoriteActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-        builder.setColor(getResources().getColor(R.color.colorAccent));
+        builder.setColor(getResources().getColor(R.color.colorPrimary));
         builder.setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.favorite_i)
                 .setLargeIcon(BitmapFactory.decodeResource(this.getResources(), R.drawable.favorite_i))
@@ -99,9 +102,26 @@ public class FilemDetailActivity extends AppCompatActivity {
                 .setContentTitle("Filemku")
                 .setContentText("Filem Favorit telah di tambahkan ");
 
+
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(115, builder.build());
 
 
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".FilemDetailActivity" />
         <activity android:name=".FavoriteActivity" />
-        <activity android:name=".UpdateFavorite"></activity>
+        <activity android:name=".UpdateFavorite" />
+        <activity android:name=".FavoriteDetail"></activity>
     </application>
 
 </manifest>
