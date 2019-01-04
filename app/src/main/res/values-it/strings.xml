@@ -10,4 +10,6 @@
     <string name="updatedetail">Aggiornamento dettagli</string>
     <string name="hapusfilm">Rimuovi pellicola</string>
     <string name="pilihan">selezione</string>
+    <string name="update">aggiornare</string>
+    <string name="back">indietro</string>
 </resources>

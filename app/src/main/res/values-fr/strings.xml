@@ -10,5 +10,7 @@
     <string name="updatedetail">Mise à jour détaillée</string>
     <string name="hapusfilm">Retirer le film</string>
     <string name="pilihan">Choix</string>
+    <string name="update">mettre à jour</string>
+    <string name="back">retour</string>
 
 </resources>
