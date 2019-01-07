@@ -6,8 +6,12 @@
     android:layout_height="match_parent"
     tools:context="id.ac.amikom.a0060students.wahyudi.filemku.FavoriteActivity">
     <ListView
+
         android:id="@+id/rv_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_row_favorite"/>
+        tools:listitem="@layout/item_row_favorite"
+        android:background="@color/colorPrimary"
+
+        />
 </RelativeLayout>

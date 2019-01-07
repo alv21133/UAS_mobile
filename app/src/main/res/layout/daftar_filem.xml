@@ -10,7 +10,8 @@
     android:layout_marginBottom="4dp"
     android:layout_marginLeft="8dp"
     android:layout_marginRight="8dp"
-    card_view:cardCornerRadius="4dp">
+    card_view:cardCornerRadius="4dp"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -69,6 +70,10 @@
                 android:textStyle="bold"
                 android:layout_weight="1"
                 android:layout_marginBottom="4dp"
+
+
+
+
                 />
 
         </LinearLayout>
