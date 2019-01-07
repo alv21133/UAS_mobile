@@ -103,9 +103,36 @@ public class FilemDetailActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             keyYoutube = key;
-                            String urlYoutube = "https://www.youtube.com/watch?v="+ keyYoutube;
-                            txtjudul.setText(urlYoutube);
+                            youTubePlayerFragment = (YouTubePlayerSupportFragment) getSupportFragmentManager()
+                                    .findFragmentById(R.id.youtube_player_fragment);
 
+                            if (youTubePlayerFragment == null)
+                                return;
+
+                            youTubePlayerFragment.initialize(DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
+
+                                @Override
+                                public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player,
+                                                                    boolean wasRestored) {
+                                    if (!wasRestored) {
+                                        youTubePlayer = player;
+
+                                        //set the player style default
+                                        youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+
+                                        //cue the 1st video by default
+                                        youTubePlayer.cueVideo(keyYoutube);
+                                    }
+                                }
+
+                                @Override
+                                public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
+
+                                    //print or show error if initialization failed
+                                    Log.e(video, "Youtube Player View initialization failed");
+                                }
+
+                            });
 
                         }
                     });
@@ -120,7 +147,7 @@ public class FilemDetailActivity extends AppCompatActivity {
 
 
         //init youtebe player
-        initializeYoutubePlayer();
+//        initializeYoutubePlayer();
 
         image = f.getImgPoster();
 
@@ -149,38 +176,7 @@ public class FilemDetailActivity extends AppCompatActivity {
 
     }
 
-    private void initializeYoutubePlayer() {
-        youTubePlayerFragment = (YouTubePlayerSupportFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.youtube_player_fragment);
 
-        if (youTubePlayerFragment == null)
-            return;
-
-        youTubePlayerFragment.initialize(DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
-
-            @Override
-            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player,
-                                                boolean wasRestored) {
-                if (!wasRestored) {
-                    youTubePlayer = player;
-
-                    //set the player style default
-                    youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
-
-                    //cue the 1st video by default
-                    youTubePlayer.cueVideo(video);
-                }
-            }
-
-            @Override
-            public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
-
-                //print or show error if initialization failed
-                Log.e(video, "Youtube Player View initialization failed");
-            }
-            
-        });
-    }
 
     private void showNotif() {
         NotificationManager notificationManager;
