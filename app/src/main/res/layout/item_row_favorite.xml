@@ -32,11 +32,15 @@
             tools:text="Judul Filem"
             android:textStyle="bold"
             android:textSize="16sp"
+            android:textColor="@color/warnajudul"
             android:layout_marginBottom="8dp"/>
         <TextView
             android:id="@+id/ringkasan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Ringkasan"/>
+            tools:text="Ringkasan"
+            android:textColor="@color/warnajudul"
+            />
+
     </LinearLayout>
 </RelativeLayout>
