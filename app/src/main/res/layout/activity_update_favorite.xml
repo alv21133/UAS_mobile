@@ -28,8 +28,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtJudul"
         android:layout_below="@+id/txtJudul"
+        android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
-        android:text="Tanggal" />
+        android:visibility="invisible"
+       />
 
     <EditText
         android:id="@+id/txtJudul"
@@ -38,7 +40,7 @@
         android:layout_alignLeft="@+id/textView1"
         android:layout_below="@+id/textView1"
         android:inputType="text"
-        android:maxLength="10">
+        android:maxLength="12">
 
         <requestFocus />
     </EditText>
@@ -58,7 +60,9 @@
         android:layout_alignLeft="@+id/txtJudul"
         android:layout_below="@+id/txtJudul"
         android:layout_marginTop="10dp"
-        android:text="Tanggal" />
+        android:layout_marginLeft="1dp"
+        android:text="Tanggal"
+        />
 
     <EditText
         android:id="@+id/txtTgl"
@@ -67,7 +71,9 @@
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:inputType="date"
-        android:maxLength="20"/>
+        android:maxLength="20"
+        android:layout_marginLeft="-7dp"
+        />
 
     <TextView
         android:id="@+id/textView3"
@@ -92,16 +98,20 @@
         android:maxLines="10"/>
     </RelativeLayout>
     <Button
+        android:background="@color/colorPrimary"
         android:id="@+id/btnUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/txtRingkasan"
         android:layout_alignParentBottom="true"
+        android:textColor="@android:color/white"
         style="?android:attr/borderlessButtonStyle"
         android:text="@string/update" />
 
     <Button
+        android:background="@color/colorbutton"
         android:id="@+id/btnBack"
+        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/back"

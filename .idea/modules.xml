@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/UAS_mobile.iml" filepath="$PROJECT_DIR$/UAS_mobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/git_uas.iml" filepath="$PROJECT_DIR$/git_uas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/git_Filemku.iml" filepath="$PROJECT_DIR$/git_Filemku.iml" />
     </modules>
   </component>
 </project>
