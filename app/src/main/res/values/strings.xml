@@ -10,4 +10,6 @@
     <string name="updatedetail">Update Detail</string>
     <string name="hapusfilm">Delete Movie</string>
     <string name="pilihan">Options</string>
+    <string name="update">Update</string>
+    <string name="back">Back</string>
 </resources>
