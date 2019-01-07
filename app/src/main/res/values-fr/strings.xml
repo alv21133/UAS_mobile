@@ -12,5 +12,9 @@
     <string name="pilihan">Choix</string>
     <string name="update">mettre à jour</string>
     <string name="back">retour</string>
-
+    <string name="player_error">Erreur lors del initialisation du lecteur YouTube: %s</string>
+    <string name="seek_to">Sauter à</string>
+    <string name="seek_to_hint">Secondes</string>
+    <string name="trailer">Regarde la bande-annonce</string>
+    <string name="add_favorit">Appuyez sur l icône étoile pour ajouter un favori et vous pourrez le voir chaque fois que vous le souhaitez.</string>
 </resources>

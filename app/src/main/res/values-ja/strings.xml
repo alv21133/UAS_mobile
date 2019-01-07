@@ -12,4 +12,9 @@
     <string name="pilihan">選択</string>
     <string name="update">更新</string>
     <string name="back">バック</string>
+    <string name="player_error">YouTubeプレーヤーの初期化エラー: %s</string>
+    <string name="seek_to">ジャンプする</string>
+    <string name="seek_to_hint">秒</string>
+    <string name="trailer">予告編を見ます</string>
+    <string name="add_favorit">お気に入りを追加するために星のアイコンを押すと、あなたはあなたが望むたびにそれを見ることができます</string>
 </resources>
