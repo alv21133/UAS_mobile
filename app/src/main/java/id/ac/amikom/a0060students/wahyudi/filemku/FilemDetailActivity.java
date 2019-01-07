@@ -20,10 +20,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerSupportFragment;
+
 
 public class FilemDetailActivity extends AppCompatActivity {
+
+    // Youtube Player
+    private YouTubePlayerSupportFragment youTubePlayerFragment;
+    private YouTubePlayer youTubePlayer;
 
     private TextView txtjudul;
     private TextView txtRingkasan;
@@ -33,15 +40,15 @@ public class FilemDetailActivity extends AppCompatActivity {
     private Button favorite;
     private String image;
     private ImageButton notification;
-
+//    public static String YOUTUBE_API_KEY = "7c3a6ded1e48da7786f7f66275cb0035";
+    public static final String DEVELOPER_KEY = "AIzaSyAbr3EPpoTxH5HyiD4sYHVtQ9Tpko8OrmY";
+    public static final String video = "CqhpNxI8qYw";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filemdetailactivity);
         dbHelper = new DataHelper(this);
-
-
         Filem  f = (Filem) getIntent().getSerializableExtra("M");
         txtjudul=(TextView) findViewById(R.id.txtDetailJudul);
         txtjudul.setText(f.getTxtJudul());
@@ -50,6 +57,9 @@ public class FilemDetailActivity extends AppCompatActivity {
         txtRingkasan.setText(f.getTxtRingkasan());
         txttayang=(TextView) findViewById(R.id.txtdatatayang);
         txttayang.setText(f.gettayang());
+
+        //init youtebe player
+        initializeYoutubePlayer();
 
         image = f.getImgPoster();
 
@@ -76,10 +86,41 @@ public class FilemDetailActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
+
+    private void initializeYoutubePlayer() {
+        youTubePlayerFragment = (YouTubePlayerSupportFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.youtube_player_fragment);
+
+        if (youTubePlayerFragment == null)
+            return;
+
+        youTubePlayerFragment.initialize(DEVELOPER_KEY, new YouTubePlayer.OnInitializedListener() {
+
+            @Override
+            public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer player,
+                                                boolean wasRestored) {
+                if (!wasRestored) {
+                    youTubePlayer = player;
+
+                    //set the player style default
+                    youTubePlayer.setPlayerStyle(YouTubePlayer.PlayerStyle.DEFAULT);
+
+                    //cue the 1st video by default
+                    youTubePlayer.cueVideo(video);
+                }
+            }
+
+            @Override
+            public void onInitializationFailure(YouTubePlayer.Provider arg0, YouTubeInitializationResult arg1) {
+
+                //print or show error if initialization failed
+                Log.e(video, "Youtube Player View initialization failed");
+            }
+            
+        });
+    }
+
     private void showNotif() {
         NotificationManager notificationManager;
 
@@ -106,22 +147,5 @@ public class FilemDetailActivity extends AppCompatActivity {
         notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         notificationManager.notify(115, builder.build());
 
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
