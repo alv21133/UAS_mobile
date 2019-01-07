@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.media.Image;
 import android.speech.RecognizerResultsIntent;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.print.PrintHelper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,18 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+
 public class FilemDetailActivity extends AppCompatActivity {
 
     private TextView txtjudul;
@@ -33,6 +46,11 @@ public class FilemDetailActivity extends AppCompatActivity {
     private Button favorite;
     private String image;
     private ImageButton notification;
+    private String trailerurl;
+    private int trailerkey;
+    private String trailers = null;
+    private String keyYoutube;
+
 
 
     @Override
@@ -40,6 +58,7 @@ public class FilemDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.filemdetailactivity);
         dbHelper = new DataHelper(this);
+
 
 
         Filem  f = (Filem) getIntent().getSerializableExtra("M");
@@ -50,6 +69,48 @@ public class FilemDetailActivity extends AppCompatActivity {
         txtRingkasan.setText(f.getTxtRingkasan());
         txttayang=(TextView) findViewById(R.id.txtdatatayang);
         txttayang.setText(f.gettayang());
+        trailerkey = f.getId();
+        trailerurl = "https://api.themoviedb.org/3/movie/" +trailerkey+ "/videos?api_key=801b1e0446fb600018c5926549d8b856";
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(trailerurl)
+                .build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Toast.makeText(getApplicationContext(),
+                        "Tidak dapat terhubung server", Toast.LENGTH_LONG).show();
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseData = response.body().string();
+                try{
+                    JSONObject objData = new JSONObject(responseData);
+                    final JSONArray arrayResults = objData.getJSONArray("results");
+                    final JSONObject objMovie = new JSONObject(arrayResults.get(0).toString());
+                    final String key = objMovie.getString("key");
+
+                    FilemDetailActivity.this.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            keyYoutube = key;
+                            String urlYoutube = "https://www.youtube.com/watch?v="+ keyYoutube;
+                            txtjudul.setText(urlYoutube);
+
+
+                        }
+                    });
+
+                }catch (JSONException e){
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
 
         image = f.getImgPoster();
 

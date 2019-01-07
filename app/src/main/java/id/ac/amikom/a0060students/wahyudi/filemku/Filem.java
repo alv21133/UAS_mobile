@@ -13,13 +13,18 @@ public class Filem implements Serializable,Parcelable {
     private String tayang;
     private String imgPoster;
 
-    public Filem(int id,String judul,String Ringkasan, String tayang, String imgPoster){
+
+
+    public Filem(int id, String judul, String Ringkasan, String tayang, String imgPoster){
         this.id = id;
         this.txtJudul = judul;
         this.txtRingkasan = Ringkasan;
         this.tayang = tayang;
         this.imgPoster = imgPoster;
     }
+    public int getId() {return id;}
+
+    public void setId(int id) {this.id = id;}
 
     public String getImgPoster() {
         return imgPoster;

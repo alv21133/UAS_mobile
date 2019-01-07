@@ -47,7 +47,7 @@ public class DataFilem extends AsyncTaskLoader<ArrayList<Filem>> {
                         String ringkasan = objMovie.getString("overview");
                         String tayang = objMovie.getString("release_date");
                         String imgPoster = "http://image.tmdb.org/t/p/original" + objMovie.getString("poster_path");
-                        int id = 0;
+                        int id = objMovie.getInt("id");
                         list.add(new Filem(id,judul,ringkasan, tayang, imgPoster));
                     }
                 }
